@@ -1,0 +1,17 @@
+{{ define "main" }}
+<article>
+  <header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.status }}<p class="meta"><span class="status">{{ . }}</span></p>{{ end }}
+  </header>
+  <div class="prose">
+    {{ .Content }}
+  </div>
+</article>
+{{ with .Params.embed }}
+<div class="embed-full">
+  <iframe class="embed-frame" src="{{ . }}" title="{{ $.Title }}" loading="lazy" allow="fullscreen" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+<p class="embed-fallback">If the panel above doesn't load, <a href="{{ . }}" target="_blank" rel="noopener">open the monitor in a new tab</a>.</p>
+{{ end }}
+{{ end }}

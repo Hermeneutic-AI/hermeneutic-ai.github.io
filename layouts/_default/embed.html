@@ -8,10 +8,35 @@
     {{ .Content }}
   </div>
 </article>
-{{ with .Params.embed }}
-<div class="embed-full">
-  <iframe class="embed-frame" src="{{ . }}" title="{{ $.Title }}" loading="lazy" allow="fullscreen" referrerpolicy="no-referrer-when-downgrade"></iframe>
+{{ with .Params.monitors }}
+{{ $first := index . 0 }}
+<div class="embed-full monitor-shell">
+  <nav class="monitor-tabs" aria-label="Monitor feeds">
+    {{ range $i, $m := . }}
+    <button type="button" class="monitor-tab{{ if eq $i 0 }} active{{ end }}" data-src="{{ $m.src }}">{{ $m.label }}</button>
+    {{ end }}
+  </nav>
+  <iframe class="monitor-frame" src="{{ $first.src }}" title="{{ $.Title }}" loading="lazy" allow="fullscreen" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
-<p class="embed-fallback">If the panel above doesn't load, <a href="{{ . }}" target="_blank" rel="noopener">open the monitor in a new tab</a>.</p>
+<p class="embed-fallback">If the panel doesn't load, <a class="monitor-open" href="{{ $first.src }}" target="_blank" rel="noopener">open the current feed in a new tab</a>.</p>
+<script>
+(function () {
+  var shell = document.querySelector('.monitor-shell');
+  if (!shell) return;
+  var frame = shell.querySelector('.monitor-frame');
+  var open = document.querySelector('.monitor-open');
+  var tabs = shell.querySelectorAll('.monitor-tab');
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      if (tab.classList.contains('active')) return;
+      tabs.forEach(function (t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      var src = tab.getAttribute('data-src');
+      frame.src = src;
+      if (open) open.href = src;
+    });
+  });
+})();
+</script>
 {{ end }}
 {{ end }}

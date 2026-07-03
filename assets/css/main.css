@@ -1,4 +1,4 @@
-/* Hermeneutic.AI — minimal greyscale with a warm accent */
+/* Hermeneutic AI — minimal greyscale with a warm accent */
 
 :root {
   --bg: #ffffff;
@@ -7,6 +7,7 @@
   --grey-light: #9a938d;
   --hairline: #e9e4df;
   --accent: #a86a48;        /* sober terracotta / sienna */
+  --accent-deep: #7a4527;   /* darker brown for the home headline */
   --accent-soft: #c69a7c;   /* lighter tint for hairlines & motifs */
   --accent-wash: #faf5f0;   /* barely-there warm background */
   --serif: Georgia, 'Times New Roman', 'Noto Serif', serif;
@@ -102,6 +103,8 @@ h2 a, h3 a { border-bottom: none; }
 .intro { margin-bottom: 4rem; }
 
 .intro h1 { font-size: 2.6rem; margin-bottom: 0.25rem; }
+
+.intro-title { color: var(--accent-deep); }
 
 .tagline {
   font-family: var(--serif);

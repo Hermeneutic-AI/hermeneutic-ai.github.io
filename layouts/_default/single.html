@@ -1,0 +1,15 @@
+{{ define "main" }}
+<article>
+  <header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{ if eq .Section "notes" }}
+    <p class="meta">{{ .Date.Format "January 2, 2006" }}</p>
+    {{ else if .Params.status }}
+    <p class="meta"><span class="status">{{ .Params.status }}</span></p>
+    {{ end }}
+  </header>
+  <div class="prose">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}

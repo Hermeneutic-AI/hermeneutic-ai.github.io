@@ -1,0 +1,9 @@
+<header class="site-header">
+  <a class="wordmark" href="{{ "/" | relURL }}">hermeneutic<span>.ai</span></a>
+  <nav>
+    {{ $current := . }}
+    {{ range .Site.Menus.main }}
+      <a href="{{ .URL }}"{{ if or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }} class="active"{{ end }}>{{ .Name }}</a>
+    {{ end }}
+  </nav>
+</header>

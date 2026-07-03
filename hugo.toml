@@ -1,4 +1,33 @@
-baseURL = 'https://example.org/'
-locale = 'en-us'
-title = 'My New Hugo Project'
-theme = 'ananke'
+baseURL = 'https://hrmn.ai/'
+languageCode = 'en-us'
+title = 'Hermeneutic.AI'
+enableRobotsTXT = true
+
+disableKinds = ['taxonomy', 'term']
+
+[params]
+  description = 'A social science research lab studying interpretive artificial intelligence for sociologists, anthropologists, and the interpretive humanities.'
+  email = 'contact@hrmn.ai'
+
+[[menu.main]]
+  name = 'Research Notes'
+  pageRef = '/notes'
+  weight = 10
+
+[[menu.main]]
+  name = 'Projects'
+  pageRef = '/projects'
+  weight = 20
+
+[[menu.main]]
+  name = 'About'
+  pageRef = '/about'
+  weight = 30
+
+[[menu.main]]
+  name = 'Contact'
+  pageRef = '/contact'
+  weight = 40
+
+[markup.goldmark.renderer]
+  unsafe = true

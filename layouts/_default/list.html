@@ -1,0 +1,18 @@
+{{ define "main" }}
+<article>
+  <h1>{{ .Title }}</h1>
+  <div class="prose section-intro">
+    {{ .Content }}
+  </div>
+  <ul class="item-list">
+    {{ range .Pages }}
+    <li>
+      <a class="item-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+      {{ with .Params.status }}<span class="status">{{ . }}</span>{{ end }}
+      {{ if eq .Section "notes" }}<span class="item-date">{{ .Date.Format "January 2, 2006" }}</span>{{ end }}
+      <p class="item-summary">{{ .Summary | plainify | htmlUnescape }}</p>
+    </li>
+    {{ end }}
+  </ul>
+</article>
+{{ end }}

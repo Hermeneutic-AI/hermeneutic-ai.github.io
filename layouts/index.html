@@ -1,0 +1,42 @@
+{{ define "main" }}
+<section class="intro">
+  <h1>Hermeneutic.AI</h1>
+  <p class="tagline">A research lab for interpretive artificial intelligence.</p>
+  <div class="prose">
+    {{ .Content }}
+  </div>
+</section>
+
+{{ $projects := where .Site.RegularPages "Section" "projects" }}
+{{ with $projects }}
+<section class="home-section">
+  <h2><a href="{{ "/projects/" | relURL }}">Projects</a></h2>
+  <ul class="item-list">
+    {{ range . }}
+    <li>
+      <a class="item-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+      {{ with .Params.status }}<span class="status">{{ . }}</span>{{ end }}
+      <p class="item-summary">{{ .Summary | plainify | htmlUnescape }}</p>
+    </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}
+
+{{ $notes := where .Site.RegularPages "Section" "notes" }}
+{{ with first 3 $notes }}
+<section class="home-section">
+  <h2><a href="{{ "/notes/" | relURL }}">Recent Research Notes</a></h2>
+  <ul class="item-list">
+    {{ range . }}
+    <li>
+      <a class="item-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <span class="item-date">{{ .Date.Format "January 2, 2006" }}</span>
+      <p class="item-summary">{{ .Summary | plainify | htmlUnescape }}</p>
+    </li>
+    {{ end }}
+  </ul>
+  <p class="more"><a href="{{ "/notes/" | relURL }}">All notes →</a></p>
+</section>
+{{ end }}
+{{ end }}

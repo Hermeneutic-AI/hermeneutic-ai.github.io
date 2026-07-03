@@ -1,6 +1,6 @@
 baseURL = 'https://hrmn.ai/'
 languageCode = 'en-us'
-title = 'Hermeneutic.AI'
+title = 'Hermeneutic AI'
 enableRobotsTXT = true
 
 disableKinds = ['taxonomy', 'term']
@@ -15,8 +15,8 @@ disableKinds = ['taxonomy', 'term']
   weight = 10
 
 [[menu.main]]
-  name = 'Projects'
-  pageRef = '/projects'
+  name = 'Tools'
+  pageRef = '/tools'
   weight = 20
 
 [[menu.main]]

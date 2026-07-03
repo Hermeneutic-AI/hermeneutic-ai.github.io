@@ -1,16 +1,16 @@
 {{ define "main" }}
 <section class="intro">
-  <h1>Hermeneutic.AI</h1>
+  <h1 class="intro-title">Hermeneutic AI</h1>
   <p class="tagline">A research lab for interpretive artificial intelligence.</p>
   <div class="prose">
     {{ .Content }}
   </div>
 </section>
 
-{{ $projects := where .Site.RegularPages "Section" "projects" }}
-{{ with $projects }}
+{{ $tools := where .Site.RegularPages "Section" "tools" }}
+{{ with $tools }}
 <section class="home-section">
-  <h2><a href="{{ "/projects/" | relURL }}">Projects</a></h2>
+  <h2><a href="{{ "/tools/" | relURL }}">Tools</a></h2>
   <ul class="item-list">
     {{ range . }}
     <li>

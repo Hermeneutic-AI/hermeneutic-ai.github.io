@@ -8,10 +8,14 @@
 {{- with sort $authors "Weight" -}}
 <div class="lab-members">
   {{- range . }}
+  {{- $author := . }}
   <div class="lab-member">
-    <h3 class="lab-member-name"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-    {{- with .Params.role }}<p class="lab-member-role">{{ . }}</p>{{ end }}
-    <div class="lab-member-bio prose">{{ .Content }}</div>
+    {{- with $author.Params.photo }}<img class="lab-member-photo" src="{{ . | relURL }}" alt="{{ $author.Title }}" width="88" height="88" loading="lazy">{{ end }}
+    <div class="lab-member-text">
+      <h3 class="lab-member-name"><a href="{{ $author.RelPermalink }}">{{ $author.Title }}</a></h3>
+      {{- with $author.Params.role }}<p class="lab-member-role">{{ . }}</p>{{ end }}
+      <div class="lab-member-bio prose">{{ $author.Content }}</div>
+    </div>
   </div>
   {{- end }}
 </div>

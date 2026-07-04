@@ -143,9 +143,9 @@ collections:
           - { label: "Short description", name: "description", widget: "string", required: false }
           - { label: "Intro text", name: "body", widget: "markdown" }
 
-      - name: "article-book-parser"
-        label: "Article/Book Parser"
-        file: "content/tools/article-book-parser.md"
+      - name: "article-book-reader"
+        label: "Academic Article/Book Reader"
+        file: "content/tools/article-book-reader.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Order (weight)", name: "weight", widget: "number", value_type: "int", default: 30 }

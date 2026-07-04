@@ -246,7 +246,11 @@ article > h1,
   align-items: flex-start;
   margin-bottom: 2.75rem;
 }
-.lab-member-photo {
+/* Scoped under .lab-member so these win over the generic `.prose img
+   { height: auto }` rule — the About body is wrapped in .prose, and
+   without this the avatars inherit the source photo's aspect ratio and
+   render as ovals. */
+.lab-member .lab-member-photo {
   flex-shrink: 0;
   width: 88px;
   height: 88px;

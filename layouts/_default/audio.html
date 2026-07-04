@@ -1,0 +1,81 @@
+{{ define "main" }}
+<article>
+  <header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.status }}<p class="meta"><span class="status">{{ . }}</span></p>{{ end }}
+  </header>
+  <div class="prose">
+    {{ .Content }}
+  </div>
+</article>
+{{ with .Params.shows }}
+<div class="briefings">
+  {{ range . }}
+  <section class="briefing">
+    <h2 class="briefing-title">{{ .name }}</h2>
+    {{ with .description }}<p class="briefing-desc">{{ . }}</p>{{ end }}
+    <div class="briefing-episodes"
+         data-feed="{{ .feed }}"
+         data-spotify="{{ with .spotify_show }}https://open.spotify.com/show/{{ . }}{{ end }}"
+         data-youtube="{{ with .youtube_playlist }}https://www.youtube.com/playlist?list={{ . }}{{ end }}">
+      <p class="briefing-loading">Loading latest episodes…</p>
+    </div>
+    <p class="briefing-links">
+      {{ with .spotify_show }}<a href="https://open.spotify.com/show/{{ . }}" target="_blank" rel="noopener">Spotify ↗</a>{{ end }}
+      {{ with .youtube_playlist }}<a href="https://www.youtube.com/playlist?list={{ . }}" target="_blank" rel="noopener">YouTube ↗</a>{{ end }}
+    </p>
+  </section>
+  {{ end }}
+</div>
+<script>
+(function () {
+  var MAX = 5;
+  function esc(s) { var d = document.createElement('div'); d.textContent = s == null ? '' : s; return d.innerHTML; }
+  function fmtDate(s) {
+    var t = Date.parse(s);
+    if (isNaN(t)) return '';
+    try { return new Date(t).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' }); }
+    catch (e) { return ''; }
+  }
+  function fallback(box) {
+    var sp = box.getAttribute('data-spotify'), yt = box.getAttribute('data-youtube');
+    var links = [];
+    if (sp) links.push('<a href="' + sp + '" target="_blank" rel="noopener">Spotify</a>');
+    if (yt) links.push('<a href="' + yt + '" target="_blank" rel="noopener">YouTube</a>');
+    box.innerHTML = '<p class="briefing-loading">Episodes couldn’t be loaded here'
+      + (links.length ? ' — listen on ' + links.join(' or ') : '') + '.</p>';
+  }
+  document.querySelectorAll('.briefing-episodes').forEach(function (box) {
+    var feed = box.getAttribute('data-feed');
+    if (!feed) { fallback(box); return; }
+    fetch(feed, { headers: { 'Accept': 'application/rss+xml, application/xml, text/xml' } })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+      .then(function (txt) {
+        var doc = new DOMParser().parseFromString(txt, 'application/xml');
+        if (doc.querySelector('parsererror')) throw new Error('parse');
+        var items = Array.prototype.slice.call(doc.querySelectorAll('item')).slice(0, MAX);
+        if (!items.length) throw new Error('empty');
+        var html = '<ul class="episode-list">';
+        items.forEach(function (it) {
+          var titleEl = it.querySelector('title');
+          var dateEl = it.querySelector('pubDate');
+          var enc = it.querySelector('enclosure');
+          var url = enc ? enc.getAttribute('url') : '';
+          html += '<li class="episode">';
+          html += '<div class="episode-head"><span class="episode-title">'
+            + esc(titleEl ? titleEl.textContent : 'Untitled episode') + '</span>';
+          var d = dateEl ? fmtDate(dateEl.textContent) : '';
+          if (d) html += '<span class="episode-date">' + esc(d) + '</span>';
+          html += '</div>';
+          if (url) html += '<audio class="episode-audio" controls preload="none" src="' + encodeURI(url) + '"></audio>';
+          html += '</li>';
+        });
+        html += '</ul>';
+        box.innerHTML = html;
+      })
+      .catch(function () { fallback(box); });
+  });
+})();
+</script>
+{{ end }}
+{{ end }}

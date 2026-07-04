@@ -301,6 +301,72 @@ article > h1,
 
 .embed-fallback a { color: var(--accent); }
 
+/* Audio Briefings */
+
+.briefings { margin-top: 2.5rem; }
+
+.briefing {
+  margin: 0 0 3rem;
+  padding-top: 2.25rem;
+  border-top: 1px solid var(--hairline);
+}
+.briefing:first-child { border-top: 0; padding-top: 0; }
+
+.briefing-title {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  color: var(--accent-deep);
+  margin: 0 0 0.4rem;
+}
+
+.briefing-desc {
+  color: var(--grey);
+  font-size: 0.98rem;
+  margin: 0 0 1.25rem;
+}
+
+.briefing-loading { color: var(--grey-light); font-size: 0.9rem; }
+.briefing-loading a { color: var(--accent); }
+
+.episode-list { list-style: none; margin: 0; padding: 0; }
+
+.episode {
+  padding: 0.9rem 0;
+  border-top: 1px solid var(--hairline);
+}
+.episode:first-child { border-top: 0; }
+
+.episode-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.2rem 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.episode-title { font-family: var(--serif); font-size: 1.02rem; }
+
+.episode-date {
+  font-size: 0.78rem;
+  color: var(--grey-light);
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.episode-audio { width: 100%; height: 40px; }
+
+.briefing-links {
+  display: flex;
+  gap: 1.5rem;
+  margin: 1.1rem 0 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.briefing-links a { color: var(--accent); border-bottom: none; }
+.briefing-links a:hover { color: var(--ink); }
+
 /* Footer */
 
 .site-footer {

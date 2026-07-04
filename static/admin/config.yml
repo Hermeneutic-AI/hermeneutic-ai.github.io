@@ -112,6 +112,27 @@ collections:
               - { label: "Embed URL", name: "src", widget: "string" }
           - { label: "Intro text", name: "body", widget: "markdown" }
 
+      - name: "audio-briefings"
+        label: "Audio Briefings"
+        file: "content/tools/audio-briefings.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Order (weight)", name: "weight", widget: "number", value_type: "int", default: 8 }
+          - { label: "Status", name: "status", widget: "string" }
+          - { label: "Layout", name: "layout", widget: "hidden", default: "audio" }
+          - label: "Shows"
+            name: "shows"
+            widget: "list"
+            label_singular: "Show"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Show name", name: "name", widget: "string" }
+              - { label: "Description", name: "description", widget: "string", required: false }
+              - { label: "Podcast RSS feed URL", name: "feed", widget: "string", hint: "The five most recent episodes are pulled from this feed." }
+              - { label: "Spotify show ID", name: "spotify_show", widget: "string", required: false, hint: "The ID from open.spotify.com/show/<id>." }
+              - { label: "YouTube playlist ID", name: "youtube_playlist", widget: "string", required: false, hint: "The list= value from the playlist URL." }
+          - { label: "Intro text", name: "body", widget: "markdown" }
+
       - name: "journal-monitor"
         label: "Journal Monitor"
         file: "content/tools/journal-monitor.md"

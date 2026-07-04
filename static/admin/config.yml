@@ -21,8 +21,8 @@ backend:
 media_folder: "static/uploads"
 public_folder: "/uploads"
 
-site_url: https://hermeneutic-ai.github.io
-display_url: https://hermeneutic-ai.github.io
+site_url: https://hrmn.ai
+display_url: https://hrmn.ai
 
 slug:
   encoding: "ascii"

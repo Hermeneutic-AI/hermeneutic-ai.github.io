@@ -72,11 +72,14 @@ collections:
     delete: false
     identifier_field: "title"
     summary: "{{title}}"
+    media_folder: "/static/uploads/authors"
+    public_folder: "/uploads/authors"
     editor:
       preview: false
     fields:
       - { label: "Name", name: "title", widget: "string" }
       - { label: "Role / tagline", name: "role", widget: "string", required: false, hint: "Shown under the name, e.g. 'Sociologist · Associate Professor, University of Bergen'." }
+      - { label: "Photo", name: "photo", widget: "image", required: false, hint: "A square headshot works best — shown as a round avatar on the About page and this author's profile page." }
       - { label: "Order (weight)", name: "weight", widget: "number", value_type: "int", default: 10, hint: "Lower numbers sort first on the About page." }
       - { label: "Bio", name: "body", widget: "markdown", hint: "Appears on both the About page and this author's profile page. Links are allowed." }
 

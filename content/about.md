@@ -17,6 +17,4 @@ Our [**Research Notes**](/notes/) are written in an experimental and exploratory
 
 ## Lab members
 
-**Victor Lund Shammas** is a sociologist — Associate Professor at the University of Bergen (PhD, University of Oslo, 2017). His work moves across political economy, critical theory, comparative penology, and political theology, with articles in _Punishment & Society_, _Constellations_, and _Capital & Class_, and he writes the essay project _Theory Brief_. → [victorshammas.com](https://victorshammas.com)
-
-**Vito Laterza** is a social anthropologist, media scholar, and political analyst. He is Associate Professor of Global Development and Planning at the University of Agder, Norway. A Cambridge PhD, his current work focuses on digital media, political communication, Big Tech platforms, and the dialectic between [analogue and digital humanity](https://www.academia.edu/attachments/105041267/download_file?s=portfolio). He co-edits the thematic collection "[Critical Simulation Studies](https://www.nature.com/collections/aabdfahjif)" for the journal _Humanities & Social Sciences Communications_. → [Full Academic Profile](https://www.uia.no/english/about-uia/employees/vitol/) / [Linkedin](https://www.linkedin.com/in/vito-laterza-b8086934/)
+{{< lab-members >}}

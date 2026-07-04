@@ -3,7 +3,14 @@ languageCode = 'en-us'
 title = 'Hermeneutic AI'
 enableRobotsTXT = true
 
-disableKinds = ['taxonomy', 'term']
+# Keep the taxonomy *list* page (/authors/) off, but keep individual
+# author term pages (/authors/<name>/) on.
+disableKinds = ['taxonomy']
+
+# Single taxonomy: research-note authors. Defining [taxonomies] replaces
+# Hugo's default tags/categories, so only 'authors' exists.
+[taxonomies]
+  author = 'authors'
 
 [params]
   description = 'A social science research lab studying interpretive artificial intelligence for sociologists, anthropologists, and the interpretive humanities.'

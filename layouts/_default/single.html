@@ -3,7 +3,15 @@
   <header class="page-header">
     <h1>{{ .Title }}</h1>
     {{ if eq .Section "notes" }}
-    <p class="meta">{{ .Date.Format "January 2, 2006" }}</p>
+    <p class="meta">
+      {{ .Date.Format "January 2, 2006" }}
+      {{- with .Param "authors" }}
+      <span class="byline">·&nbsp;By {{ range $i, $a := . }}{{ if $i }}, {{ end }}
+        {{- $p := site.GetPage (printf "/authors/%s" (urlize $a)) -}}
+        {{- with $p }}<a href="{{ .RelPermalink }}">{{ $a }}</a>{{ else }}{{ $a }}{{ end -}}
+      {{ end }}</span>
+      {{- end }}
+    </p>
     {{ else if .Params.status }}
     <p class="meta"><span class="status">{{ .Params.status }}</span></p>
     {{ end }}

@@ -1,0 +1,18 @@
+{{- /* Renders each lab member from their author profile page, so the bio
+       lives in exactly one place (content/authors/<name>/_index.md) and is
+       shared between this About page and the author's own profile page. */ -}}
+{{- $authors := slice -}}
+{{- range $term, $wp := site.Taxonomies.authors -}}
+  {{- $authors = $authors | append $wp.Page -}}
+{{- end -}}
+{{- with sort $authors "Weight" -}}
+<div class="lab-members">
+  {{- range . }}
+  <div class="lab-member">
+    <h3 class="lab-member-name"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+    {{- with .Params.role }}<p class="lab-member-role">{{ . }}</p>{{ end }}
+    <div class="lab-member-bio prose">{{ .Content }}</div>
+  </div>
+  {{- end }}
+</div>
+{{- end -}}

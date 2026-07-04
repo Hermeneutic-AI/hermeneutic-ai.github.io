@@ -16,7 +16,7 @@
     <button type="button" class="monitor-tab{{ if eq $i 0 }} active{{ end }}" data-src="{{ $m.src }}">{{ $m.label }}</button>
     {{ end }}
   </nav>
-  <iframe class="monitor-frame" src="{{ $first.src }}" title="{{ $.Title }}" loading="lazy" allow="fullscreen" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <iframe class="monitor-frame" src="{{ $first.src }}" title="{{ $.Title }}" loading="lazy" scrolling="no" allow="fullscreen" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 <p class="embed-fallback">If the panel doesn't load, <a class="monitor-open" href="{{ $first.src }}" target="_blank" rel="noopener">open the current feed in a new tab</a>.</p>
 <script>
@@ -39,8 +39,10 @@
   window.addEventListener('message', function (e) {
     if (e.origin !== frameOrigin()) return;
     var d = e.data;
-    if (d && d.type === 'monitor-embed-height' && typeof d.height === 'number') {
-      frame.style.height = Math.max(Math.round(d.height), 400) + 'px';
+    if (!d || d.type !== 'monitor-embed-height') return;
+    var h = parseFloat(d.height);
+    if (!isNaN(h) && h > 0) {
+      frame.style.height = Math.max(Math.round(h), 400) + 'px';
     }
   });
 

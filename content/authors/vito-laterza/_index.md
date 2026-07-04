@@ -1,7 +1,7 @@
 ---
 title: Vito Laterza
 role: Anthropologist · Associate Professor, University of Agder
-photo: /uploads/authors/vitolaterzapic.jpg
+photo: /uploads/authors/vitolaterzapic2.jpg
 weight: 20
 ---
 

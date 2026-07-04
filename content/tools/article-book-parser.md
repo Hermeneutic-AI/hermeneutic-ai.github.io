@@ -2,7 +2,7 @@
 title: Academic Article/Book Reader
 weight: 30
 status: In Development
-description: Parsing articles and books in the humanities and interpretive social sciences into arguments, summaries, and key points.
+description: Reading articles and books in the qualitative social sciences and humanities and breaking them into passages, arguments, summaries, and key points.
 ---
 
 The Academic Article/Book Reader is tool under development for reading long-form scholarship closely and at scale: it parses articles and monographs in the humanities and interpretive social sciences, drawing out their central arguments, summarising their moves, and extracting the key points a reader needs to orient quickly.

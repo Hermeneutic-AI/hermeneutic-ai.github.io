@@ -1,7 +1,7 @@
 ---
-title: Article/Book Parser
+title: Academic Article/Book Reader
 weight: 30
-status: Planned
+status: In Development
 description: Parsing articles and books in the humanities and interpretive social sciences into arguments, summaries, and key points.
 ---
 

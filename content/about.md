@@ -17,6 +17,6 @@ Our [**research notes**](/notes/) are written in an experimental and exploratory
 
 ## Lab members
 
-**Victor Lund Shammas** is a sociologist — Associate Professor and Head of the Department of Sociology and Social Work at the University of Agder (PhD, University of Oslo, 2017). His work moves across political economy, critical theory, comparative penology, and political theology, with articles in *Punishment & Society*, *Constellations*, and *Capital & Class*, and he writes the essay project *Theory Brief*. → [victorshammas.com](https://victorshammas.com)
+**Victor Lund Shammas** is a sociologist — Associate Professor at the University of Bergen (PhD, University of Oslo, 2017). His work moves across political economy, critical theory, comparative penology, and political theology, with articles in *Punishment & Society*, *Constellations*, and *Capital & Class*, and he writes the essay project *Theory Brief*. → [victorshammas.com](https://victorshammas.com)
 
 **Vito Laterza** is a social anthropologist, media scholar, and political analyst — Associate Professor of Global Development and Planning at the University of Agder, where he leads the Digitalization & Sustainability area at the Centre for Digital Transformation (CeDiT). A Cambridge PhD, his work ranges across political economy and ecology, digital media, and the dialectic between "analogue" and "digital" humanity, and he co-edits the *Journal of Contemporary African Studies*. → [vitolaterza.academia.edu](https://vitolaterza.academia.edu/)

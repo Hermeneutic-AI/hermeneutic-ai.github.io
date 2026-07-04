@@ -10,18 +10,18 @@ disableKinds = ['taxonomy', 'term']
   email = 'contact@hrmn.ai'
 
 [[menu.main]]
+  name = 'About'
+  pageRef = '/about'
+  weight = 10
+
+[[menu.main]]
   name = 'Research Notes'
   pageRef = '/notes'
-  weight = 10
+  weight = 20
 
 [[menu.main]]
   name = 'Tools'
   pageRef = '/tools'
-  weight = 20
-
-[[menu.main]]
-  name = 'About'
-  pageRef = '/about'
   weight = 30
 
 [[menu.main]]

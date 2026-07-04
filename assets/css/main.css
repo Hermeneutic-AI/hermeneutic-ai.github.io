@@ -107,6 +107,10 @@ h2 a, h3 a { border-bottom: none; }
 
 .intro-title { color: var(--accent-deep); }
 
+/* Page & section headlines share the home headline's brown */
+article > h1,
+.page-header h1 { color: var(--accent-deep); }
+
 .tagline {
   font-family: var(--serif);
   font-style: italic;

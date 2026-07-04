@@ -16,4 +16,4 @@ shows:
     youtube_playlist: PLEIoYRgVQTLc
 ---
 
-Audio Briefings are AI-produced podcasts built on the News Monitor's feeds — hand-crafted selection and scriptwriting turn the day's monitoring into a short, listenable briefing. The five most recent episodes of each show are below; subscribe on Spotify or YouTube to follow along.
+Audio Briefings are AI-produced podcasts built on the News Monitor's feeds — hand-crafted selection criteria and scriptwriting turn the day's monitoring into a short, listenable briefing. The five most recent episodes of each show are below; subscribe on Spotify or YouTube to follow along.

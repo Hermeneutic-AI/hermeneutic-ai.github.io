@@ -1,7 +1,6 @@
 {{ define "main" }}
 <article>
   <header class="page-header">
-    <p class="meta"><a href="{{ "/notes/" | relURL }}">← Research Notes</a></p>
     {{ with .Params.photo }}<img class="author-photo" src="{{ . | relURL }}" alt="{{ $.Title }}" width="150" height="150" loading="lazy">{{ end }}
     <h1>{{ .Title }}</h1>
     {{ with .Params.role }}<p class="meta author-role">{{ . }}</p>{{ end }}

@@ -13,8 +13,8 @@ Artificial intelligence, as it is usually built and benchmarked, sits at some di
 Hermeneutic AI names both an object of study and a research program:
 
 - **As an object of study**, it asks what kind of interpreter a language model is. What are its prejudices, in Gadamer's non-pejorative sense — the horizon of pre-understanding it brings to every text? What happens to the hermeneutic circle when one of its participants is a machine?
-- **As a research program**, it asks how these systems can be put to work *for* interpretive scholarship: reading at scales no individual scholar can, surfacing patterns across archives, drafting the first pass of a coding scheme — while leaving judgment, context, and theoretical imagination where they belong, with the researcher.
+- **As a research program**, it asks how these systems can be put to work _for_ interpretive scholarship: reading at scales no individual scholar can, surfacing patterns across archives, drafting the first pass of a coding scheme — while leaving judgment, context, and theoretical imagination where they belong, with the researcher.
 
 The wager of this lab is that the interpretive social sciences should neither ignore these systems nor surrender to them, but engage them the way our disciplines have always engaged new instruments of reading: critically, reflexively, and with close attention to what is gained and lost in translation.
 
-This site will collect our notes and prototypes as the work unfolds.
+This site will collect our notes and tools as the work unfolds.

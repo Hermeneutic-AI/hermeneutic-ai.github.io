@@ -186,10 +186,61 @@ article > h1,
   vertical-align: middle;
 }
 
+.item-authors {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.82rem;
+  color: var(--grey-light);
+  letter-spacing: 0.03em;
+}
+
+.item-authors a { color: var(--grey); border-bottom: 1px solid var(--accent-soft); }
+.item-authors a:hover { color: var(--accent-deep); border-bottom-color: var(--accent); }
+
 /* Articles */
 
 .page-header { margin-bottom: 2.5rem; }
 .page-header h1 { margin-bottom: 0.4rem; }
+
+.byline a {
+  color: var(--grey);
+  border-bottom: 1px solid var(--accent-soft);
+}
+.byline a:hover { color: var(--accent-deep); border-bottom-color: var(--accent); }
+
+/* Author profile pages + About lab members */
+
+.author-role,
+.lab-member-role {
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--accent-deep);
+  letter-spacing: 0.03em;
+}
+
+.author-notes { margin-top: 3rem; }
+.author-notes h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--grey);
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.lab-members { margin-top: 2rem; }
+.lab-member { margin-bottom: 2.5rem; }
+.lab-member-name {
+  font-size: 1.15rem;
+  margin-bottom: 0.1rem;
+}
+.lab-member-name a {
+  color: var(--accent-deep);
+  border-bottom: none;
+}
+.lab-member-name a:hover { border-bottom: 1px solid var(--accent); }
+.lab-member-role { margin-bottom: 0.5rem; }
+.lab-member-bio p:last-child { margin-bottom: 0; }
 
 .meta {
   font-size: 0.85rem;

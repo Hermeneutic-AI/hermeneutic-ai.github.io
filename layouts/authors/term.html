@@ -1,0 +1,26 @@
+{{ define "main" }}
+<article>
+  <header class="page-header">
+    <p class="meta"><a href="{{ "/notes/" | relURL }}">← Research Notes</a></p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.role }}<p class="meta author-role">{{ . }}</p>{{ end }}
+  </header>
+  <div class="prose author-bio">
+    {{ .Content }}
+  </div>
+  {{ with .Pages }}
+  <section class="author-notes">
+    <h2>Research Notes</h2>
+    <ul class="item-list">
+      {{ range . }}
+      <li>
+        <a class="item-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        {{ if eq .Section "notes" }}<span class="item-date">{{ .Date.Format "January 2, 2006" }}</span>{{ end }}
+        <p class="item-summary">{{ .Summary | plainify | htmlUnescape }}</p>
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+</article>
+{{ end }}

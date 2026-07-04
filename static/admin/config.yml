@@ -58,6 +58,28 @@ collections:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
 
+  # ── Authors / lab members ──────────────────────────────────────
+  # Each author is one file at content/authors/<name>/_index.md. The bio
+  # written here is the SINGLE source of truth: it shows on the About page
+  # AND on the author's own profile page (/authors/<name>/), which also
+  # auto-lists every research note credited to them.
+  - name: "authors"
+    label: "Authors / Lab members"
+    label_singular: "Author"
+    folder: "content/authors"
+    path: "{{slug}}/_index"
+    create: true
+    delete: false
+    identifier_field: "title"
+    summary: "{{title}}"
+    editor:
+      preview: false
+    fields:
+      - { label: "Name", name: "title", widget: "string" }
+      - { label: "Role / tagline", name: "role", widget: "string", required: false, hint: "Shown under the name, e.g. 'Sociologist · Associate Professor, University of Bergen'." }
+      - { label: "Order (weight)", name: "weight", widget: "number", value_type: "int", default: 10, hint: "Lower numbers sort first on the About page." }
+      - { label: "Bio", name: "body", widget: "markdown", hint: "Appears on both the About page and this author's profile page. Links are allowed." }
+
   # ── Research notes (add / edit freely) ─────────────────────────
   - name: "notes"
     label: "Research Notes"
@@ -74,6 +96,16 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime", required: false, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
       - { label: "Short description", name: "description", widget: "string", required: false, hint: "One-line summary used in listings and link previews." }
+      - label: "Authors"
+        name: "authors"
+        widget: "relation"
+        collection: "authors"
+        value_field: "title"
+        search_fields: ["title"]
+        display_fields: ["title"]
+        multiple: true
+        required: false
+        hint: "Pick from the Authors collection. Bylines link to each author's profile page."
       - { label: "Body", name: "body", widget: "markdown" }
 
   # ── Tools ──────────────────────────────────────────────────────

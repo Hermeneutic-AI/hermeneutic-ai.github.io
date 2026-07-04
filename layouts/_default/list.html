@@ -10,6 +10,12 @@
       <a class="item-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
       {{ with .Params.status }}<span class="status">{{ . }}</span>{{ end }}
       {{ if eq .Section "notes" }}<span class="item-date">{{ .Date.Format "January 2, 2006" }}</span>{{ end }}
+      {{- with .Param "authors" }}
+      <span class="item-authors">By {{ range $i, $a := . }}{{ if $i }}, {{ end }}
+        {{- $p := site.GetPage (printf "/authors/%s" (urlize $a)) -}}
+        {{- with $p }}<a href="{{ .RelPermalink }}">{{ $a }}</a>{{ else }}{{ $a }}{{ end -}}
+      {{ end }}</span>
+      {{- end }}
       <p class="item-summary">{{ .Summary | plainify | htmlUnescape }}</p>
     </li>
     {{ end }}

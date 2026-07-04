@@ -90,7 +90,7 @@ collections:
         file: "content/tools/_index.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
+          - { label: "Intro text", name: "body", widget: "markdown" }
 
       - name: "monitor"
         label: "Monitor"
@@ -141,7 +141,7 @@ collections:
           - { label: "Order (weight)", name: "weight", widget: "number", value_type: "int", default: 10 }
           - { label: "Status", name: "status", widget: "string" }
           - { label: "Short description", name: "description", widget: "string", required: false }
-          - { label: "Body", name: "body", widget: "markdown" }
+          - { label: "Intro text", name: "body", widget: "markdown" }
 
       - name: "article-book-parser"
         label: "Article/Book Parser"
@@ -151,4 +151,4 @@ collections:
           - { label: "Order (weight)", name: "weight", widget: "number", value_type: "int", default: 30 }
           - { label: "Status", name: "status", widget: "string" }
           - { label: "Short description", name: "description", widget: "string", required: false }
-          - { label: "Body", name: "body", widget: "markdown" }
+          - { label: "Intro text", name: "body", widget: "markdown" }

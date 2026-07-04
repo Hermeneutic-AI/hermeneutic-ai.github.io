@@ -9,13 +9,13 @@
 # Because GitHub Pages has no server, GitHub login is handled by a
 # small Cloudflare Worker (the "sveltia-cms-auth" relay).
 #
-# ►►► SETUP: replace base_url below with your deployed worker's URL.
-#     Full steps are in /docs/cms-setup.md at the repo root.
+# Auth is handled by the shared sveltia-cms-auth Cloudflare Worker
+# (its ALLOWED_DOMAINS must include hermeneutic-ai.github.io).
 backend:
   name: github
   repo: Hermeneutic-AI/hermeneutic-ai.github.io
   branch: main
-  base_url: https://REPLACE-WITH-YOUR-WORKER-SUBDOMAIN.workers.dev
+  base_url: https://sveltia-cms-auth.victor-shammas.workers.dev
 
 # Where CMS-uploaded images are stored / referenced.
 media_folder: "static/uploads"

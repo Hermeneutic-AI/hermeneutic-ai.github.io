@@ -234,6 +234,9 @@ article > h1,
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
+  /* Bias the crop upward so headshots keep the forehead/hairline
+     instead of centring on the face and clipping the top of the head. */
+  object-position: center 25%;
   margin: 0.5rem 0 1.5rem;
   border: 4px solid var(--accent-wash);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
@@ -256,6 +259,7 @@ article > h1,
   height: 88px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: center 25%;
   border: 4px solid var(--accent-wash);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }

@@ -26,12 +26,31 @@
   var frame = shell.querySelector('.monitor-frame');
   var open = document.querySelector('.monitor-open');
   var tabs = shell.querySelectorAll('.monitor-tab');
+
+  function frameOrigin() {
+    try { return new URL(frame.src, location.href).origin; } catch (e) { return null; }
+  }
+
+  // Auto-fit: if the embedded page reports its content height via
+  // postMessage({ type: 'monitor-embed-height', height: <px> }), size the
+  // iframe to match so the whole feed loads without a secondary scrollbar.
+  // (Cross-origin content height can't be read directly, so the embed must
+  // send it; until then the tall CSS fallback keeps scrolling minimal.)
+  window.addEventListener('message', function (e) {
+    if (e.origin !== frameOrigin()) return;
+    var d = e.data;
+    if (d && d.type === 'monitor-embed-height' && typeof d.height === 'number') {
+      frame.style.height = Math.max(Math.round(d.height), 400) + 'px';
+    }
+  });
+
   tabs.forEach(function (tab) {
     tab.addEventListener('click', function () {
       if (tab.classList.contains('active')) return;
       tabs.forEach(function (t) { t.classList.remove('active'); });
       tab.classList.add('active');
       var src = tab.getAttribute('data-src');
+      frame.style.height = '';        // reset to CSS fallback; new frame re-reports
       frame.src = src;
       if (open) open.href = src;
     });

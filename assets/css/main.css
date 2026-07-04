@@ -285,8 +285,12 @@ article > h1,
 .monitor-frame {
   display: block;
   width: 100%;
-  height: 84vh;
-  min-height: 620px;
+  /* Tall fallback so the whole feed loads with little/no inner scroll even
+     before the embed reports its height. When the embed posts a
+     'monitor-embed-height' message, JS sets an exact height and this is
+     overridden (see embed.html). */
+  height: 1600px;
+  min-height: 900px;
   border: 0;
   border-bottom: 1px solid var(--hairline);
   background: var(--accent-wash);

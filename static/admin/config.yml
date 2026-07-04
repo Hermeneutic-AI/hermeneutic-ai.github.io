@@ -1,0 +1,133 @@
+# ================================================================
+# Sveltia CMS configuration for Hermeneutic AI
+# Docs: https://github.com/sveltia/sveltia-cms
+# (uses the Decap/Netlify CMS config format)
+# ================================================================
+
+# ── Backend / authentication ─────────────────────────────────────
+# Editing requires a GitHub account with WRITE access to this repo.
+# Because GitHub Pages has no server, GitHub login is handled by a
+# small Cloudflare Worker (the "sveltia-cms-auth" relay).
+#
+# ►►► SETUP: replace base_url below with your deployed worker's URL.
+#     Full steps are in /docs/cms-setup.md at the repo root.
+backend:
+  name: github
+  repo: Hermeneutic-AI/hermeneutic-ai.github.io
+  branch: main
+  base_url: https://REPLACE-WITH-YOUR-WORKER-SUBDOMAIN.workers.dev
+
+# Where CMS-uploaded images are stored / referenced.
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+site_url: https://hermeneutic-ai.github.io
+display_url: https://hermeneutic-ai.github.io
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+
+# ── Collections ──────────────────────────────────────────────────
+collections:
+
+  # ── Standalone pages ───────────────────────────────────────────
+  - name: "pages"
+    label: "Pages"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "home"
+        label: "Home"
+        file: "content/_index.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - name: "about"
+        label: "About"
+        file: "content/about.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - name: "contact"
+        label: "Contact"
+        file: "content/contact.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+  # ── Research notes (add / edit freely) ─────────────────────────
+  - name: "notes"
+    label: "Research Notes"
+    label_singular: "Research Note"
+    folder: "content/notes"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    sort: "date:desc"
+    summary: "{{title}}"
+    editor:
+      preview: false
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", required: false, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Short description", name: "description", widget: "string", required: false, hint: "One-line summary used in listings and link previews." }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # ── Tools ──────────────────────────────────────────────────────
+  # Enumerated as individual files so each keeps its own fields —
+  # in particular, the Monitor's feed list is preserved on save.
+  - name: "tools"
+    label: "Tools"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "tools-intro"
+        label: "Tools — section intro"
+        file: "content/tools/_index.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+      - name: "monitor"
+        label: "Monitor"
+        file: "content/tools/monitor.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Order (weight)", name: "weight", widget: "number", value_type: "int", default: 5, hint: "Lower numbers sort first in the tools list." }
+          - { label: "Status", name: "status", widget: "string", hint: "e.g. Live, In development, Planned." }
+          - { label: "Short description", name: "description", widget: "string", required: false }
+          - { label: "Layout", name: "layout", widget: "hidden", default: "embed" }
+          - label: "Feeds (tabs)"
+            name: "monitors"
+            widget: "list"
+            label_singular: "Feed"
+            summary: "{{fields.label}}"
+            hint: "Each feed becomes a tab. 'Embed URL' should point at a chrome-free embed page."
+            fields:
+              - { label: "Tab label", name: "label", widget: "string" }
+              - { label: "Embed URL", name: "src", widget: "string" }
+          - { label: "Intro text", name: "body", widget: "markdown" }
+
+      - name: "journal-monitor"
+        label: "Journal Monitor"
+        file: "content/tools/journal-monitor.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Order (weight)", name: "weight", widget: "number", value_type: "int", default: 10 }
+          - { label: "Status", name: "status", widget: "string" }
+          - { label: "Short description", name: "description", widget: "string", required: false }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+      - name: "article-book-parser"
+        label: "Article/Book Parser"
+        file: "content/tools/article-book-parser.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Order (weight)", name: "weight", widget: "number", value_type: "int", default: 30 }
+          - { label: "Status", name: "status", widget: "string" }
+          - { label: "Short description", name: "description", widget: "string", required: false }
+          - { label: "Body", name: "body", widget: "markdown" }

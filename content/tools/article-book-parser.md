@@ -9,7 +9,7 @@ The Academic Article/Book Reader is tool under development for reading long-form
 
 <!--more-->
 
-The aim is not to replace reading but to prepare it — surfacing a text's claims, structure, and stakes so a scholar can judge where to spend real attention, and returning an interpretive synthesis rather than a mechanical abstract. Sensitive to genre and tradition, it is built to read the way our disciplines read: for meaning and argument, not merely for facts. 
+The aim is not to replace reading but to prepare it — surfacing a text's claims, structure, and stakes so a researcher can judge where to spend real attention, and returning an interpretive synthesis rather than a mechanical abstract. Sensitive to genre and tradition, it is built to read the way our disciplines read: for meaning and argument, not merely for facts. 
 
 The tool's functionality allows researchers to easily verify the accuracy and validity of its contents, by mapping claims and nodes to passages highlighted on the original source.
 

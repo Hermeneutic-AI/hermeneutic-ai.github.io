@@ -40,9 +40,22 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment_retry.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - id: deployment
+      # The GitHub Pages deployment API intermittently returns
+      # "Deployment failed, try again later." even when the build is fine.
+      # Retry once (after a short pause) so a single transient blip doesn't
+      # turn the whole run red — the second attempt reuses the same artifact.
+      - name: Deploy to GitHub Pages (attempt 1)
+        id: deployment
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+      - name: Wait before retry
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 20
+      - name: Deploy to GitHub Pages (attempt 2)
+        if: steps.deployment.outcome == 'failure'
+        id: deployment_retry
         uses: actions/deploy-pages@v4

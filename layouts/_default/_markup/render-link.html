@@ -1,0 +1,8 @@
+{{- /* Markdown link render hook:
+       external links (host differs from the site host) open in a new tab;
+       internal and relative links stay in the same tab. */ -}}
+{{- $siteHost := (urls.Parse site.BaseURL).Host -}}
+{{- $linkHost := (urls.Parse .Destination).Host -}}
+{{- $external := and (ne $linkHost "") (ne $linkHost $siteHost) -}}
+<a href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . | safeHTML }}"{{ end }}{{ if $external }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .Text | safeHTML }}</a>
+{{- /* */ -}}

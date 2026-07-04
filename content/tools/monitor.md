@@ -1,8 +1,8 @@
 ---
-title: Monitor
+title: News Monitor
 weight: 5
 status: Live
-description: A live dashboard following AI, space, technology, and political discourse across sources.
+description: A live news dashboard following AI, space, technology, and political discourse across sources.
 layout: embed
 monitors:
   - label: AI

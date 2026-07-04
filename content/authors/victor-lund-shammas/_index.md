@@ -1,6 +1,7 @@
 ---
 title: Victor Lund Shammas
 role: Sociologist · Associate Professor, University of Bergen
+photo: /uploads/authors/victorlundshammaspic.jpg
 weight: 10
 ---
 

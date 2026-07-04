@@ -1,8 +1,8 @@
 ---
-title: Journal Monitor
+title: Academic Journal Monitor
 weight: 10
 status: In development
-description: An AI-assisted reader that follows scholarly journals so you don't have to.
+description: An AI-assisted reader that follows scholarly journals.
 ---
 
 Journal Monitor follows a curated set of scholarly journals and reads what appears in them — abstracts, and where possible full texts — through an interpretive lens tuned to the researcher's own questions.

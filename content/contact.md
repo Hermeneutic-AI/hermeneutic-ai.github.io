@@ -7,3 +7,5 @@ We are glad to hear from researchers, students, and practitioners interested in 
 **Email:** [contact@hrmn.ai](mailto:contact@hrmn.ai)
 
 We read everything, though as a small lab we may be slow to reply.
+
+{{< newsletter >}}

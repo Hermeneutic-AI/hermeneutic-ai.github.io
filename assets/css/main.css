@@ -707,6 +707,80 @@ article > h1,
 .briefing-links a { color: var(--accent); border-bottom: none; }
 .briefing-links a:hover { color: var(--ink); }
 
+/* Newsletter */
+
+.newsletter {
+  margin: 3rem 0 0;
+  padding: 1.75rem 1.75rem 2rem;
+  background: var(--accent-wash);
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+}
+
+.newsletter-title {
+  font-size: 1.15rem;
+  margin: 0 0 0.35rem;
+  color: var(--accent-deep);
+}
+
+.newsletter-note {
+  margin: 0 0 1.1rem;
+  font-size: 0.9rem;
+  color: var(--grey);
+}
+
+.newsletter-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.newsletter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.newsletter-input {
+  flex: 1 1 14rem;
+  min-width: 0;
+  padding: 0.6rem 0.75rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--accent-soft);
+  border-radius: 3px;
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.newsletter-button {
+  flex: 0 0 auto;
+  padding: 0.6rem 1.25rem;
+  font-family: inherit;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.newsletter-button:hover {
+  background: var(--accent-deep);
+  border-color: var(--accent-deep);
+}
+
 /* Footer */
 
 .site-footer {

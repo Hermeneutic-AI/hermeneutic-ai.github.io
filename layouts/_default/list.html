@@ -11,7 +11,8 @@
       {{ with .Params.status }}<span class="status">{{ . }}</span>{{ end }}
       {{ if eq .Section "notes" }}<span class="item-date">{{ .Date.Format "January 2, 2006" }}</span>{{ end }}
       {{- with .Param "authors" }}
-      <span class="item-authors">By {{ range $i, $a := . }}{{ if $i }}, {{ end }}
+      <span class="item-authors">By {{ $last := sub (len .) 1 -}}
+      {{ range $i, $a := . }}{{ if $i }}{{ if eq $i $last }} &amp; {{ else }}, {{ end }}{{ end }}
         {{- $p := site.GetPage (printf "/authors/%s" (urlize $a)) -}}
         {{- with $p }}<a href="{{ .RelPermalink }}">{{ $a }}</a>{{ else }}{{ $a }}{{ end -}}
       {{ end }}</span>

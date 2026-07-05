@@ -1,8 +1,8 @@
 ---
-title: Victor Lund Shammas
+title: Victor Shammas
 role: Sociologist · Associate Professor, University of Bergen
 photo: /uploads/authors/victorlundshammaspic.jpg
 weight: 10
 ---
 
-Victor Lund Shammas is a sociologist — Associate Professor at the University of Bergen (PhD, University of Oslo, 2017). His work moves across political economy, critical theory, comparative penology, and political theology, with articles in _Punishment & Society_, _Constellations_, and _Capital & Class_, and he writes the essay project _Theory Brief_. → [victorshammas.com](https://victorshammas.com)
+Victor Shammas is a sociologist. He is Associate Professor of Sociology at the University of Bergen and holds a PhD from the University of Oslo (2017). His work moves across political economy, critical theory, comparative penology, and digital sociology, with articles in _Punishment & Society_, _British Journal of Criminology_, _Constellations_, and _Capital & Class_. He also writes the newsletter [_Theory Brief_](theorybrief.com). → Research: [victorshammas.com](https://victorshammas.com)

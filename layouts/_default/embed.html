@@ -42,7 +42,9 @@
     if (!d || d.type !== 'monitor-embed-height') return;
     var h = parseFloat(d.height);
     if (!isNaN(h) && h > 0) {
-      frame.style.height = Math.max(Math.round(h), 400) + 'px';
+      // Add a small buffer so the embed's copyright footer isn't clipped by
+      // sub-pixel rounding between the reported height and the rendered frame.
+      frame.style.height = Math.max(Math.round(h) + 24, 400) + 'px';
     }
   });
 

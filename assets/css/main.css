@@ -370,8 +370,8 @@ article > h1,
      before the embed reports its height. When the embed posts a
      'monitor-embed-height' message, JS sets an exact height and this is
      overridden (see embed.html). */
-  height: 1600px;
-  min-height: 900px;
+  height: 1640px;
+  min-height: 940px;
   border: 0;
   border-bottom: 1px solid var(--hairline);
   background: var(--accent-wash);

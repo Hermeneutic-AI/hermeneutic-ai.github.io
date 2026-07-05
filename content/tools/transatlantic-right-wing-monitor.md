@@ -7,6 +7,13 @@ layout: embed
 monitors:
   - label: Monitor
     src: https://victorshammas.com/media-monitor/
+reports:
+  owner: victor-shammas
+  repo: media-monitor
+  branch: main
+  path: reports
+  title: Daily Reports
+  description: Analytic snapshots of the past twenty-four hours across the monitor — AI-generated intelligence briefs, archived daily.
 ---
 
 Transatlantic Right-Wing Monitor is a standalone dashboard following right-wing and far-right politics across more than ten countries on both sides of the Atlantic — parties, leading figures, movements, and transnational networks, tracked country by country.

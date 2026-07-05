@@ -6,7 +6,7 @@ Hermeneutic AI is a social science research lab devoted to **interpretive artifi
 
 We start from a simple observation: the qualitative disciplines — sociology, anthropology, geography, philosophy, history, and their neighbors in the social sciences and humanities — have been largely spectators to the current wave of rapid developments in artificial intelligence, which speak the language of prediction, quantitative measurement, and benchmark. Yet these AI systems are trained on text, culture, human insight, and conversation: the very materials interpretive scholars have spent more than a century analysing and writing about. 
 
-Hermeneutic AI helps the qualitative social sciences and humanities regaining agency and harnessing the power of AI according to their foundational principles and values, with a healthy of dose of realism about AI actual capabilities, and an open-minded attitude to AI's potential for renewal and amplification of human thinking. 
+Hermeneutic AI helps the qualitative social sciences and humanities regain agency and harness the power of AI according to their foundational principles and values, with a healthy of dose of realism about actual machine capabilities, and an open-minded attitude to its potential for the renewal and amplification of human thinking. 
 
 The lab works in two main directions:
 

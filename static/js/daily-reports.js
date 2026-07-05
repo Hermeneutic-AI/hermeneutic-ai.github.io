@@ -14,7 +14,7 @@
 (function () {
   'use strict';
 
-  var INITIAL_COUNT = 5;  // latest dailies shown on load
+  var INITIAL_COUNT = 3;  // latest dailies shown on load
   var STEP = 10;          // revealed per "Show more"
 
   var section = document.querySelector('.daily-reports');

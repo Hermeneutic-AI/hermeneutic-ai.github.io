@@ -390,7 +390,7 @@ article > h1,
 /* Daily reports — analytic briefs listed from the public archive and read
    in an on-site overlay (see static/js/daily-reports.js) */
 
-.daily-reports { margin-top: 4.5rem; }
+.daily-reports { margin-top: 3rem; }
 
 .daily-reports > h2 {
   font-family: var(--sans);

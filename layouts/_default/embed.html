@@ -8,6 +8,41 @@
     {{ .Content }}
   </div>
 </article>
+{{ with .Params.reports }}
+<section class="daily-reports"
+         data-owner="{{ .owner }}"
+         data-repo="{{ .repo }}"
+         data-branch="{{ .branch | default "main" }}"
+         data-path="{{ .path | default "reports" }}">
+  <h2>{{ .title | default "Daily Reports" }}</h2>
+  {{ with .description }}<p class="reports-desc">{{ . }}</p>{{ end }}
+  <ol class="report-list"></ol>
+  <p class="reports-status">Loading the latest reports&hellip;</p>
+  <p class="reports-actions">
+    <button type="button" class="reports-more" hidden>Show more</button>
+    <a class="reports-archive" href="https://github.com/{{ .owner }}/{{ .repo }}/tree/{{ .branch | default "main" }}/{{ .path | default "reports" }}" target="_blank" rel="noopener">Full archive &#8599;</a>
+  </p>
+</section>
+<div class="report-modal" role="dialog" aria-modal="true" aria-labelledby="report-modal-title" hidden>
+  <div class="report-modal-backdrop"></div>
+  <div class="report-modal-panel">
+    <header class="report-modal-head">
+      <div class="report-modal-heading">
+        <p class="report-modal-kicker">Daily Report</p>
+        <h2 class="report-modal-title" id="report-modal-title"></h2>
+      </div>
+      <button type="button" class="report-modal-close" aria-label="Close report">&times;</button>
+    </header>
+    <div class="report-modal-body prose report-body"></div>
+    <footer class="report-modal-foot">
+      <button type="button" class="report-nav report-nav-newer">&larr; Newer</button>
+      <a class="report-modal-source" href="#" target="_blank" rel="noopener">View on GitHub</a>
+      <button type="button" class="report-nav report-nav-older">Older &rarr;</button>
+    </footer>
+  </div>
+</div>
+<script src="{{ "js/daily-reports.js" | relURL }}" defer></script>
+{{ end }}
 {{ with .Params.monitors }}
 {{ $first := index . 0 }}
 <div class="embed-full monitor-shell">
@@ -61,40 +96,5 @@
   });
 })();
 </script>
-{{ end }}
-{{ with .Params.reports }}
-<section class="daily-reports"
-         data-owner="{{ .owner }}"
-         data-repo="{{ .repo }}"
-         data-branch="{{ .branch | default "main" }}"
-         data-path="{{ .path | default "reports" }}">
-  <h2>{{ .title | default "Daily Reports" }}</h2>
-  {{ with .description }}<p class="reports-desc">{{ . }}</p>{{ end }}
-  <ol class="report-list"></ol>
-  <p class="reports-status">Loading the latest reports&hellip;</p>
-  <p class="reports-actions">
-    <button type="button" class="reports-more" hidden>Show more</button>
-    <a class="reports-archive" href="https://github.com/{{ .owner }}/{{ .repo }}/tree/{{ .branch | default "main" }}/{{ .path | default "reports" }}" target="_blank" rel="noopener">Full archive &#8599;</a>
-  </p>
-</section>
-<div class="report-modal" role="dialog" aria-modal="true" aria-labelledby="report-modal-title" hidden>
-  <div class="report-modal-backdrop"></div>
-  <div class="report-modal-panel">
-    <header class="report-modal-head">
-      <div class="report-modal-heading">
-        <p class="report-modal-kicker">Daily Report</p>
-        <h2 class="report-modal-title" id="report-modal-title"></h2>
-      </div>
-      <button type="button" class="report-modal-close" aria-label="Close report">&times;</button>
-    </header>
-    <div class="report-modal-body prose report-body"></div>
-    <footer class="report-modal-foot">
-      <button type="button" class="report-nav report-nav-newer">&larr; Newer</button>
-      <a class="report-modal-source" href="#" target="_blank" rel="noopener">View on GitHub</a>
-      <button type="button" class="report-nav report-nav-older">Older &rarr;</button>
-    </footer>
-  </div>
-</div>
-<script src="{{ "js/daily-reports.js" | relURL }}" defer></script>
 {{ end }}
 {{ end }}

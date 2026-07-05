@@ -387,6 +387,256 @@ article > h1,
 
 .embed-fallback a { color: var(--accent); }
 
+/* Daily reports — analytic briefs listed from the public archive and read
+   in an on-site overlay (see static/js/daily-reports.js) */
+
+.daily-reports { margin-top: 4.5rem; }
+
+.daily-reports > h2 {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.reports-desc {
+  color: var(--grey);
+  font-size: 0.95rem;
+  margin: 0 0 0.75rem;
+}
+
+.report-list { list-style: none; margin: 0; padding: 0; }
+
+.report-item { border-top: 1px solid var(--hairline); }
+.report-item:first-child { border-top: 0; }
+
+.report-link {
+  display: flex;
+  width: 100%;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 0.4rem;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.report-link:hover { background: var(--accent-wash); }
+.report-link:hover .report-date { color: var(--accent-deep); }
+
+.report-date { font-family: var(--serif); font-size: 1.05rem; }
+.report-date .status { margin-left: 0.7rem; }
+
+.report-meta {
+  font-size: 0.78rem;
+  color: var(--grey-light);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.reports-status { font-size: 0.9rem; color: var(--grey-light); }
+.reports-status a { color: var(--accent); }
+
+.reports-actions {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1.25rem 0 0;
+}
+
+.reports-more {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--grey);
+  background: transparent;
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  padding: 0.35rem 1.05rem;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.reports-more:hover { color: var(--ink); border-color: var(--accent-soft); }
+
+.reports-archive {
+  margin-left: auto;
+  font-size: 0.75rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--grey-light);
+  border-bottom: none;
+}
+
+.reports-archive:hover { color: var(--accent); }
+
+/* Report reader overlay */
+
+.report-modal-open, .report-modal-open body { overflow: hidden; }
+
+.report-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+}
+
+.report-modal[hidden] { display: none; }
+
+.report-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(31, 28, 26, 0.55);
+}
+
+.report-modal-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 46rem;
+  max-height: calc(100vh - 3rem);
+  background: var(--bg);
+  border-top: 3px solid var(--accent);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.28);
+}
+
+.report-modal-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.2rem 1.6rem 1rem;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.report-modal-kicker {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.25rem;
+}
+
+.report-modal-title {
+  font-size: 1.3rem;
+  color: var(--accent-deep);
+  margin: 0;
+}
+
+.report-modal-close {
+  flex-shrink: 0;
+  font-family: var(--sans);
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--grey-light);
+  background: none;
+  border: 0;
+  padding: 0.1rem 0.3rem;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.report-modal-close:hover { color: var(--ink); }
+
+.report-modal-body {
+  overflow-y: auto;
+  padding: 1.5rem 1.6rem;
+  font-size: 0.97rem;
+  overscroll-behavior: contain;
+}
+
+/* Scale the brief's own heading hierarchy down to reader size */
+.report-body h1 { font-size: 1.4rem; margin-top: 2rem; }
+.report-body h2 { font-size: 1.25rem; margin-top: 2.25rem; }
+.report-body h3 { font-size: 1.08rem; margin-top: 1.75rem; }
+.report-body h4, .report-body h5, .report-body h6 {
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+.report-body > :first-child { margin-top: 0; }
+
+.report-body hr { margin: 2rem 0; }
+
+.report-body pre {
+  overflow-x: auto;
+  background: #f5f5f5;
+  padding: 0.85rem 1rem;
+  border-radius: 3px;
+  font-size: 0.85em;
+}
+
+.report-cite { line-height: 0; }
+.report-cite a {
+  font-size: 0.72em;
+  color: var(--accent);
+  border-bottom: none;
+  padding: 0 0.1em;
+}
+.report-cite a:hover { color: var(--accent-deep); }
+
+.report-note { color: var(--grey-light); font-size: 0.92rem; }
+.report-note a { color: var(--accent); }
+
+.report-modal-foot {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1.6rem;
+  border-top: 1px solid var(--hairline);
+}
+
+.report-nav {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--grey);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.report-nav:hover:not(:disabled) { color: var(--accent-deep); }
+.report-nav:disabled { color: var(--hairline); cursor: default; }
+
+.report-modal-source {
+  font-size: 0.75rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--grey-light);
+  border-bottom: none;
+}
+
+.report-modal-source:hover { color: var(--accent); }
+
+@media (max-width: 480px) {
+  .report-modal { padding: 0.75rem 0.5rem; }
+  .report-modal-panel { max-height: calc(100vh - 1.5rem); }
+  .report-modal-head, .report-modal-body, .report-modal-foot {
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
+  }
+}
+
 /* Audio Briefings */
 
 .briefings { margin-top: 2.5rem; }

@@ -55,7 +55,7 @@ a:hover { border-bottom-color: var(--accent); }
   gap: 0.5rem 2rem;
   padding: 2.5rem 0 2rem;
   border-bottom: 1px solid var(--hairline);
-  margin-bottom: 3.5rem;
+  margin-bottom: 1.75rem;
 }
 
 .wordmark {

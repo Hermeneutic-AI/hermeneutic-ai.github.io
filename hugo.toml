@@ -24,7 +24,7 @@ disableKinds = ['taxonomy']
   # Buttondown newsletter — the subscribe box on /contact/ posts to this account.
   # Set this to your Buttondown username (the site never stores emails itself;
   # Buttondown holds the list). Leave blank to hide the subscribe box.
-  buttondownUsername = 'hermeneuticsAI'
+  buttondownUsername = 'hermeneuticAI'
 
 [[menu.main]]
   name = 'About'

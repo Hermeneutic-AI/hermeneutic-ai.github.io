@@ -19,7 +19,7 @@ disableKinds = ['taxonomy']
   # Cloudflare Web Analytics — cookieless, no consent banner required.
   # Paste the token from your Cloudflare dashboard (Analytics → Web Analytics).
   # The beacon only loads on production builds; leave blank to disable.
-  cloudflareAnalyticsToken = ''
+  cloudflareAnalyticsToken = '57e6858a6a33413a9b86d7429bf5d6a3'
 
   # Buttondown newsletter — the subscribe box on /contact/ posts to this account.
   # Set this to your Buttondown username (the site never stores emails itself;

@@ -1,3 +1,23 @@
 <footer class="site-footer">
+  {{- /* Compact newsletter signup, shown on every page. Pages that already
+         embed the full subscribe box (e.g. /contact/ via the newsletter
+         shortcode) opt out with hideFooterNewsletter: true in front matter.
+         Like the shortcode, it posts straight to Buttondown — no addresses
+         are stored here — and renders nothing if the username is unset. */ -}}
+  {{- if and site.Params.buttondownUsername (not .Params.hideFooterNewsletter) }}
+  {{- with site.Params.buttondownUsername }}
+  <form
+    class="footer-newsletter"
+    action="https://buttondown.com/api/emails/embed-subscribe/{{ . }}"
+    method="post"
+    target="popupwindow"
+    onsubmit="window.open('https://buttondown.com/{{ . }}', 'popupwindow')"
+  >
+    <label class="footer-newsletter-label" for="bd-footer-email">Newsletter</label>
+    <input class="footer-newsletter-input" type="email" name="email" id="bd-footer-email" placeholder="you@example.edu" required>
+    <button class="footer-newsletter-button" type="submit">Subscribe</button>
+  </form>
+  {{- end }}
+  {{- end }}
   <p>&copy; {{ now.Year }} Hermeneutic AI &nbsp;·&nbsp; <a href="{{ "index.xml" | relURL }}">RSS</a></p>
 </footer>

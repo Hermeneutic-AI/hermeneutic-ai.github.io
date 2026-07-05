@@ -5,7 +5,7 @@ status: Live
 description: A comparative dashboard following right-wing and far-right politics across ten-plus countries on both sides of the Atlantic.
 layout: embed
 monitors:
-  - label: Dashboards
+  - label: Dashboard
     src: https://victorshammas.com/media-monitor/
 reports:
   owner: victor-shammas

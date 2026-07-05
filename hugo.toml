@@ -16,6 +16,16 @@ disableKinds = ['taxonomy']
   description = 'A social science research lab studying interpretive artificial intelligence for sociologists, anthropologists, and the interpretive humanities.'
   email = 'contact@hrmn.ai'
 
+  # Cloudflare Web Analytics — cookieless, no consent banner required.
+  # Paste the token from your Cloudflare dashboard (Analytics → Web Analytics).
+  # The beacon only loads on production builds; leave blank to disable.
+  cloudflareAnalyticsToken = ''
+
+  # Buttondown newsletter — the subscribe box on /contact/ posts to this account.
+  # Set this to your Buttondown username (the site never stores emails itself;
+  # Buttondown holds the list). Leave blank to hide the subscribe box.
+  buttondownUsername = 'hermeneuticAI'
+
 [[menu.main]]
   name = 'About'
   pageRef = '/about'

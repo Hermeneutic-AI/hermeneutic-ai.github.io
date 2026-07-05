@@ -1,10 +1,13 @@
+{{- /* Compact newsletter signup, shown on every page as part of the single
+       footer line. Pages that already embed the full subscribe box (e.g.
+       /contact/ via the newsletter shortcode) opt out with
+       hideFooterNewsletter: true in front matter. Like the shortcode, it
+       posts straight to Buttondown — no addresses are stored here — and
+       renders nothing if the username is unset. */ -}}
+{{- $newsletter := and site.Params.buttondownUsername (not .Params.hideFooterNewsletter) }}
 <footer class="site-footer">
-  {{- /* Compact newsletter signup, shown on every page. Pages that already
-         embed the full subscribe box (e.g. /contact/ via the newsletter
-         shortcode) opt out with hideFooterNewsletter: true in front matter.
-         Like the shortcode, it posts straight to Buttondown — no addresses
-         are stored here — and renders nothing if the username is unset. */ -}}
-  {{- if and site.Params.buttondownUsername (not .Params.hideFooterNewsletter) }}
+  <p>&copy; {{ now.Year }} Hermeneutic AI &nbsp;·&nbsp; <a href="{{ "index.xml" | relURL }}">RSS</a>{{ if $newsletter }} &nbsp;·&nbsp;{{ end }}</p>
+  {{- if $newsletter }}
   {{- with site.Params.buttondownUsername }}
   <form
     class="footer-newsletter"
@@ -19,5 +22,4 @@
   </form>
   {{- end }}
   {{- end }}
-  <p>&copy; {{ now.Year }} Hermeneutic AI &nbsp;·&nbsp; <a href="{{ "index.xml" | relURL }}">RSS</a></p>
 </footer>

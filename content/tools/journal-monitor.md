@@ -1,18 +1,18 @@
 ---
 title: Academic Journal Monitor
 weight: 10
-status: In development
-description: An AI-assisted reader that follows scholarly journals.
+status: Live
+description: A live dashboard tracking new articles across scholarly journals in sociology and adjacent fields.
 layout: embed
 monitors:
   - label: Journals
     src: https://victorshammas.com/embeds/academic-journal-monitor/
 ---
 
-Academic Journal Monitor follows a curated set of scholarly journals and reads what appears in them — abstracts, and where possible full texts — through an interpretive lens tuned to the researcher's own questions.
+Academic Journal Monitor is a live dashboard that tracks new work across a curated set of some seventy-five scholarly journals in sociology, criminology, political economy, social theory, anthropology, and political science.
 
 <!--more-->
 
-Rather than keyword alerts, it offers something closer to a colleague's digest: what is being argued this month, which debates are moving, which pieces speak — sometimes obliquely — to your ongoing work. The aim is not to summarize the literature away, but to point the scholar toward what deserves a real reading.
+It gathers recent articles — the last thirty days, by default — from the OpenAlex index and lays them out by discipline: title, authors, and abstract, with items published since your last visit flagged as new. A keyword watch follows a set of standing search terms across the wider literature, catching relevant work in journals outside the curated list. Articles can be filtered, starred for later reading, and exported as Markdown, and the journal list, keywords, and lookback window are all editable in the tool's settings.
 
-**Status:** in active development. A first prototype — embedded below — monitors a small set of sociology and anthropology journals.
+It is deliberately a reader's tool rather than an interpretive one: no summaries, no ranking beyond recency — simply what has appeared, and where, gathered in one place.

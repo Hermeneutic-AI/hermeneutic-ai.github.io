@@ -1,25 +1,27 @@
-{{- /* Compact newsletter signup, shown on every page as part of the single
-       footer line. Pages that already embed the full subscribe box (e.g.
-       /contact/ via the newsletter shortcode) opt out with
-       hideFooterNewsletter: true in front matter. Like the shortcode, it
-       posts straight to Buttondown — no addresses are stored here — and
-       renders nothing if the username is unset. */ -}}
-{{- $newsletter := and site.Params.buttondownUsername (not .Params.hideFooterNewsletter) }}
+{{- /* Full newsletter subscribe card, shown in the footer of every page. It
+       posts straight to Buttondown, which stores the list securely on its own
+       servers — no email addresses are ever kept in this repository. The
+       username is set via params.buttondownUsername in hugo.toml; if it is
+       blank, the card renders nothing. */ -}}
 <footer class="site-footer">
-  <p>&copy; {{ now.Year }} Hermeneutic AI &nbsp;·&nbsp; <a href="{{ "index.xml" | relURL }}">RSS</a>{{ if $newsletter }} &nbsp;·&nbsp;{{ end }}</p>
-  {{- if $newsletter }}
   {{- with site.Params.buttondownUsername }}
-  <form
-    class="footer-newsletter"
-    action="https://buttondown.com/api/emails/embed-subscribe/{{ . }}"
-    method="post"
-    target="popupwindow"
-    onsubmit="window.open('https://buttondown.com/{{ . }}', 'popupwindow')"
-  >
-    <label class="footer-newsletter-label" for="bd-footer-email">Newsletter</label>
-    <input class="footer-newsletter-input" type="email" name="email" id="bd-footer-email" placeholder="you@example.edu" required>
-    <button class="footer-newsletter-button" type="submit">Subscribe</button>
-  </form>
+  <section class="newsletter">
+    <h2 class="newsletter-title">Subscribe to our newsletter</h2>
+    <p class="newsletter-note">Occasional notes on our research and tools.</p>
+    <form
+      class="newsletter-form"
+      action="https://buttondown.com/api/emails/embed-subscribe/{{ . }}"
+      method="post"
+      target="popupwindow"
+      onsubmit="window.open('https://buttondown.com/{{ . }}', 'popupwindow')"
+    >
+      <label class="newsletter-label" for="bd-email">Email address</label>
+      <div class="newsletter-row">
+        <input class="newsletter-input" type="email" name="email" id="bd-email" placeholder="you@example.edu" required>
+        <button class="newsletter-button" type="submit">Subscribe</button>
+      </div>
+    </form>
+  </section>
   {{- end }}
-  {{- end }}
+  <p>&copy; {{ now.Year }} Hermeneutic AI &nbsp;·&nbsp; <a href="{{ "index.xml" | relURL }}">RSS</a></p>
 </footer>

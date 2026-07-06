@@ -784,72 +784,21 @@ article > h1,
 /* Footer */
 
 .site-footer {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem;
   margin-top: 5rem;
-  padding: 1.75rem 0 3rem;
+  padding: 2.5rem 0 3rem;
   border-top: 1px solid var(--hairline);
   font-size: 0.8rem;
   color: var(--grey-light);
 }
 
-.site-footer p { margin: 0; }
+/* The subscribe card leads the footer; the border-top and padding above
+   already set it off from the page, so drop the card's own top margin. */
+.site-footer .newsletter { margin: 0; }
+
+.site-footer p { margin: 1.75rem 0 0; }
 
 .site-footer a { color: var(--grey-light); border-bottom: none; }
 .site-footer a:hover { color: var(--ink); }
-
-/* Compact newsletter signup in the footer — deliberately quiet next to the
-   full box on /contact/: it continues the copyright line as
-   "· Newsletter [email] Subscribe" in the same muted footer type. */
-
-.footer-newsletter {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex: 1 1 14rem;
-  min-width: 0;
-}
-
-.footer-newsletter-label {
-  color: var(--grey);
-}
-
-.footer-newsletter-input {
-  flex: 1 1 5rem;
-  min-width: 0;
-  padding: 0.3rem 0.55rem;
-  font-family: inherit;
-  font-size: 0.8rem;
-  color: var(--ink);
-  background: var(--bg);
-  border: 1px solid var(--hairline);
-  border-radius: 3px;
-}
-
-.footer-newsletter-input:focus {
-  outline: none;
-  border-color: var(--accent);
-}
-
-.footer-newsletter-button {
-  flex: 0 0 auto;
-  padding: 0.3rem 0.8rem;
-  font-family: inherit;
-  font-size: 0.8rem;
-  color: var(--grey);
-  background: transparent;
-  border: 1px solid var(--hairline);
-  border-radius: 3px;
-  cursor: pointer;
-  transition: color 0.15s ease, border-color 0.15s ease;
-}
-
-.footer-newsletter-button:hover {
-  color: var(--accent-deep);
-  border-color: var(--accent-soft);
-}
 
 @media (max-width: 480px) {
   .intro h1 { font-size: 2.1rem; }

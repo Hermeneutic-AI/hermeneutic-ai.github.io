@@ -784,18 +784,23 @@ article > h1,
 /* Footer */
 
 .site-footer {
-  margin-top: 5rem;
-  padding: 2.5rem 0 3rem;
-  border-top: 1px solid var(--hairline);
+  margin-top: 3.5rem;
+  padding-bottom: 3rem;
   font-size: 0.8rem;
   color: var(--grey-light);
 }
 
-/* The subscribe card leads the footer; the border-top and padding above
-   already set it off from the page, so drop the card's own top margin. */
+/* The subscribe card leads the footer and carries its own boxed styling,
+   so it needs no extra top margin here. */
 .site-footer .newsletter { margin: 0; }
 
-.site-footer p { margin: 1.75rem 0 0; }
+/* Divider between the subscribe box and the copyright line below it. Scoped
+   to the footer's direct <p> so it never touches the card's own paragraphs. */
+.site-footer > p {
+  margin: 1.75rem 0 0;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--hairline);
+}
 
 .site-footer a { color: var(--grey-light); border-bottom: none; }
 .site-footer a:hover { color: var(--ink); }

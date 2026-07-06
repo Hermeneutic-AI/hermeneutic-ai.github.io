@@ -23,5 +23,5 @@
     </form>
   </section>
   {{- end }}
-  <p>&copy; {{ now.Year }} Hermeneutic AI &nbsp;·&nbsp; <a href="{{ "index.xml" | relURL }}">RSS</a></p>
+  <p>&copy; {{ now.Year }} Hermeneutic AI &nbsp;·&nbsp; <a href="{{ "index.xml" | relURL }}">RSS</a>{{ with site.Params.email }} &nbsp;·&nbsp; <a href="mailto:{{ . }}">{{ . }}</a>{{ end }}</p>
 </footer>

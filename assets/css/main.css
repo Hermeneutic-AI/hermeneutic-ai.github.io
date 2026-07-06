@@ -1,6 +1,7 @@
 /* Hermeneutic AI — minimal greyscale with a warm accent */
 
 :root {
+  color-scheme: light dark;
   --bg: #ffffff;
   --ink: #1f1c1a;
   --grey: #6e6864;
@@ -10,8 +11,34 @@
   --accent-deep: #7a4527;   /* darker brown for the home headline */
   --accent-soft: #c69a7c;   /* lighter tint for hairlines & motifs */
   --accent-wash: #faf5f0;   /* barely-there warm background */
+  --code-bg: #f5f5f5;       /* inline & block code background */
+  --shadow: rgba(0, 0, 0, 0.1);
+  --shadow-strong: rgba(0, 0, 0, 0.28);
+  --backdrop: rgba(31, 28, 26, 0.55);
   --serif: Georgia, 'Times New Roman', 'Noto Serif', serif;
   --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+
+/* Dark mode — follows the device/system setting only; there is no in-page
+   toggle. Every colour here is a warm dark counterpart to the light palette,
+   overriding the same custom properties so the rest of the stylesheet is
+   untouched. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17130f;          /* warm near-black */
+    --ink: #ece6df;
+    --grey: #a8a099;
+    --grey-light: #837b73;
+    --hairline: #322d27;
+    --accent: #cd8b62;      /* lightened terracotta for contrast on dark */
+    --accent-deep: #dca27b; /* warm light tone for headlines */
+    --accent-soft: #6d4a33;
+    --accent-wash: #221b15;
+    --code-bg: #241d17;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --shadow-strong: rgba(0, 0, 0, 0.6);
+    --backdrop: rgba(0, 0, 0, 0.65);
+  }
 }
 
 * { box-sizing: border-box; }
@@ -239,7 +266,7 @@ article > h1,
   object-position: 50% 15%;
   margin: 0.5rem 0 1.5rem;
   border: 4px solid var(--accent-wash);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 4px var(--shadow);
 }
 
 .lab-members { margin-top: 2rem; }
@@ -261,7 +288,7 @@ article > h1,
   object-fit: cover;
   object-position: 50% 15%;
   border: 4px solid var(--accent-wash);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 4px var(--shadow);
 }
 .lab-member-text { flex: 1; min-width: 0; }
 .lab-member-name {
@@ -309,7 +336,7 @@ article > h1,
 
 .prose code {
   font-size: 0.9em;
-  background: #f5f5f5;
+  background: var(--code-bg);
   padding: 0.1em 0.35em;
   border-radius: 3px;
 }
@@ -504,7 +531,7 @@ article > h1,
 .report-modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(31, 28, 26, 0.55);
+  background: var(--backdrop);
 }
 
 .report-modal-panel {
@@ -516,7 +543,7 @@ article > h1,
   max-height: calc(100vh - 3rem);
   background: var(--bg);
   border-top: 3px solid var(--accent);
-  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 12px 48px var(--shadow-strong);
 }
 
 .report-modal-head {
@@ -579,7 +606,7 @@ article > h1,
 
 .report-body pre {
   overflow-x: auto;
-  background: #f5f5f5;
+  background: var(--code-bg);
   padding: 0.85rem 1rem;
   border-radius: 3px;
   font-size: 0.85em;

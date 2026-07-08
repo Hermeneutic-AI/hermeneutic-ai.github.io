@@ -16,7 +16,7 @@ Current developments in Artificial intelligence tend to go in a different direct
 
 What perhaps is even less understood is how the creative potential of these models make their linguistic processes of analysis and text-generation more akin the patchy, irregular, fuzzy pace of human reading and writing, than exact robotic calculations designed to satisfy the positivist vision of their creators.
 
-Hermeneutic AI aims to explore and experiment with some of the mysterious pathways of the interpretive mind of genAI. This nascent field refers to both an object of study and a research program:
+Hermeneutic AI aims to experiment with the mysterious pathways of genAI's interpretive mind. This nascent field refers to both an object of study and a research program:
 
 - **As an object of study**, it asks what kind of interpreter a large language model is. What are its prejudices, in Gadamer's non-pejorative sense — the horizon of pre-understanding it brings to every text? What happens to the hermeneutic circle when one of its participants is a machine?
 - **As a research program**, it asks how these systems can be put to work _for_ interpretive scholarship: reading at scales no individual scholar can, surfacing patterns across archives, drafting the first pass of a coding scheme — while leaving judgment, context, and theoretical imagination where they belong, with the researcher.

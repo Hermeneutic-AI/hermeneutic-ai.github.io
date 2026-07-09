@@ -3,9 +3,8 @@ title: What Is Hermeneutic AI?
 date: 2026-07-03
 description: An opening note on the idea of interpretive artificial intelligence.
 authors:
-  - Victor Lund Shammas
-  - Vito Laterza
   - Victor Shammas
+  - Vito Laterza
 ---
 
 Hermeneutics is the discipline of interpretation: the art and theory of understanding texts, actions, and forms of life. It runs from the exegesis of scripture through philosophers Wilhelm Dilthey and Hans-Georg Gadamer to the interpretive turn in the social sciences — the insistence, as anthropologist Clifford Geertz put it, that the study of culture is "not an experimental science in search of law but an interpretive one in search of meaning."

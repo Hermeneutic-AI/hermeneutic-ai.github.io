@@ -24,4 +24,4 @@ The wager of this lab is that the interpretive social sciences should neither ig
 
 This site will collect our notes and tools as the work unfolds.
 
-_DISCLAIMER: In the spirit of open and transparent experimentation, we have crafted this note with the help of Claude Fable 5, guiding it from the start through our main vision of Hermeneutic AI and co-authoring and editing Fable's suggested outputs. We are solely responsible for the contents of this note._
+_\*Note: In the spirit of open and transparent experimentation, we have crafted this note with the help of Claude Fable 5, guiding it from the start through our main vision of Hermeneutic AI and co-authoring and editing Fable's suggested outputs. We are solely responsible for the contents of this note._

@@ -1,4 +1,5 @@
 ---
+cms_type: tool
 title: Academic Journal Monitor
 weight: 10
 status: Live

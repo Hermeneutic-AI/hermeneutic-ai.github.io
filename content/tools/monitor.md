@@ -1,4 +1,5 @@
 ---
+cms_type: tool
 title: News Monitor
 weight: 5
 status: Live

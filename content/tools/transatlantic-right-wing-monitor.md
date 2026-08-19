@@ -1,4 +1,5 @@
 ---
+cms_type: tool
 title: Transatlantic Right-Wing Monitor
 weight: 6
 status: Live

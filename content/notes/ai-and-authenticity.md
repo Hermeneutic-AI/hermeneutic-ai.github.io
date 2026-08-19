@@ -1,13 +1,7 @@
 ---
 title: AI and Authenticity
 date: 2026-08-19
-description: ''
-lede: >-
-  Much anti-AI positioning in academia rests on its weakest argument:
-  authenticity. Drawing on Adorno, Bourdieu, Haraway, and Stiegler, this note
-  argues there is no pre-technological, "natural" self to protect — and asks
-  what bolder forms of thinking and writing with AI higher education might
-  pursue instead.
+lede: 'Much anti-AI positioning in academia rests on its weakest argument: authenticity. Drawing on Adorno, Bourdieu, Haraway, Stiegler, and social theorists, this note argues there is no pre-technological, "natural" self to protect — and asks what bolder forms of thinking and writing with AI higher education might pursue instead.'
 authors:
   - Victor Shammas
 ---

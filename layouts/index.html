@@ -32,7 +32,7 @@
     <li>
       <a class="item-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
       <span class="item-date">{{ .Date.Format "January 2, 2006" }}</span>
-      <p class="item-summary">{{ .Summary | plainify | htmlUnescape }}</p>
+      <p class="item-summary">{{ with .Params.lede }}{{ . }}{{ else }}{{ .Summary | plainify | htmlUnescape }}{{ end }}</p>
     </li>
     {{ end }}
   </ul>

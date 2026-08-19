@@ -17,7 +17,7 @@
         {{- with $p }}<a href="{{ .RelPermalink }}">{{ $a }}</a>{{ else }}{{ $a }}{{ end -}}
       {{ end }}</span>
       {{- end }}
-      <p class="item-summary">{{ .Summary | plainify | htmlUnescape }}</p>
+      <p class="item-summary">{{ with .Params.lede }}{{ . }}{{ else }}{{ .Summary | plainify | htmlUnescape }}{{ end }}</p>
     </li>
     {{ end }}
   </ul>

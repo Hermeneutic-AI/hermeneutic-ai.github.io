@@ -147,6 +147,37 @@ collections:
               - { label: "Embed URL", name: "src", widget: "string" }
           - { label: "Intro text", name: "body", widget: "markdown" }
 
+      - name: "transatlantic-right-wing-monitor"
+        label: "Transatlantic Right-Wing Monitor"
+        file: "content/tools/transatlantic-right-wing-monitor.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Order (weight)", name: "weight", widget: "number", value_type: "int", default: 6 }
+          - { label: "Status", name: "status", widget: "string" }
+          - { label: "Short description", name: "description", widget: "string", required: false }
+          - { label: "Layout", name: "layout", widget: "hidden", default: "embed" }
+          - label: "Feeds (tabs)"
+            name: "monitors"
+            widget: "list"
+            label_singular: "Feed"
+            summary: "{{fields.label}}"
+            fields:
+              - { label: "Tab label", name: "label", widget: "string" }
+              - { label: "Embed URL", name: "src", widget: "string" }
+          - label: "Daily reports"
+            name: "reports"
+            widget: "object"
+            required: false
+            hint: "GitHub repo the archived daily reports are read from."
+            fields:
+              - { label: "Repo owner", name: "owner", widget: "string" }
+              - { label: "Repo name", name: "repo", widget: "string" }
+              - { label: "Branch", name: "branch", widget: "string", default: "main" }
+              - { label: "Path in repo", name: "path", widget: "string" }
+              - { label: "Section title", name: "title", widget: "string" }
+              - { label: "Section description", name: "description", widget: "string", required: false }
+          - { label: "Intro text", name: "body", widget: "markdown" }
+
       - name: "audio-briefings"
         label: "Audio Briefings"
         file: "content/tools/audio-briefings.md"
@@ -184,6 +215,16 @@ collections:
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Order (weight)", name: "weight", widget: "number", value_type: "int", default: 30 }
+          - { label: "Status", name: "status", widget: "string" }
+          - { label: "Short description", name: "description", widget: "string", required: false }
+          - { label: "Intro text", name: "body", widget: "markdown" }
+
+      - name: "network-analyzer"
+        label: "Network Analyzer"
+        file: "content/tools/network-analyzer.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Order (weight)", name: "weight", widget: "number", value_type: "int", default: 40 }
           - { label: "Status", name: "status", widget: "string" }
           - { label: "Short description", name: "description", widget: "string", required: false }
           - { label: "Intro text", name: "body", widget: "markdown" }

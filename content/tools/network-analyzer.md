@@ -9,8 +9,4 @@ Network Analyzer is a tool under development for mapping social networks as soci
 
 <!--more-->
 
-![An early build of Network Analyzer showing a people–venue network graph](/uploads/tools/network-analyzer-graph.png)
-
-*An early build of the tool, showing a bipartite people–venue graph. The data pictured is illustrative.*
-
 **Status:** in development.

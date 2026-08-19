@@ -110,6 +110,7 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime", required: false, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
       - { label: "Short description", name: "description", widget: "string", required: false, hint: "One-line summary used in listings and link previews." }
+      - { label: "Lede / abstract", name: "lede", widget: "text", required: false, hint: "A brief abstract paragraph shown in the Recent Research Notes list on the home page and on the Notes page. If left empty, the note's first paragraph is shown instead." }
       - label: "Authors"
         name: "authors"
         widget: "relation"

@@ -1,4 +1,5 @@
 ---
+cms_type: tool
 title: Academic Article/Book Reader
 weight: 30
 status: In Development

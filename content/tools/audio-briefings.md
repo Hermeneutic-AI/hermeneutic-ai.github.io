@@ -1,4 +1,5 @@
 ---
+cms_type: tool
 title: Audio Briefings
 weight: 8
 status: Live

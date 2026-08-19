@@ -1,4 +1,5 @@
 ---
+cms_type: tool
 title: Network Analyzer
 weight: 40
 status: In Development

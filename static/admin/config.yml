@@ -24,6 +24,11 @@ public_folder: "/uploads"
 site_url: https://hrmn.ai
 display_url: https://hrmn.ai
 
+# Don't write empty optional fields into the front matter on save —
+# keeps plain tools free of unused monitors/shows/reports keys.
+output:
+  omit_empty_optional_fields: true
+
 slug:
   encoding: "ascii"
   clean_accents: true
@@ -57,6 +62,12 @@ collections:
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
+      - name: "tools-intro"
+        label: "Tools — section intro"
+        file: "content/tools/_index.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Intro text", name: "body", widget: "markdown" }
 
   # ── Authors / lab members ──────────────────────────────────────
   # Each author is one file at content/authors/<name>/_index.md. The bio
@@ -112,119 +123,78 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
 
   # ── Tools ──────────────────────────────────────────────────────
-  # Enumerated as individual files so each keeps its own fields —
-  # in particular, the Monitor's feed list is preserved on save.
+  # A folder collection so NEW tools can be added from the admin panel
+  # ("New Tool" button). One shared schema covers every tool; the
+  # specialised sections (feed tabs, podcast shows, daily reports) are
+  # optional and only saved when filled in. The hidden cms_type marker
+  # keeps the section intro (_index.md, edited under Pages) out of this
+  # list. omit_empty_optional_fields (set under `output:` above) keeps
+  # unused optional fields from being written into the front matter.
   - name: "tools"
     label: "Tools"
-    delete: false
+    label_singular: "Tool"
+    folder: "content/tools"
+    create: true
+    delete: true
+    identifier_field: "title"
+    summary: "{{title}}"
+    sortable_fields: ["weight", "title", "status"]
+    filter: { field: "cms_type", value: "tool" }
+    media_folder: "/static/uploads/tools"
+    public_folder: "/uploads/tools"
     editor:
       preview: false
-    files:
-      - name: "tools-intro"
-        label: "Tools — section intro"
-        file: "content/tools/_index.md"
+    fields:
+      - { label: "Marker", name: "cms_type", widget: "hidden", default: "tool" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Order (weight)", name: "weight", widget: "number", value_type: "int", default: 50, hint: "Lower numbers sort first in the tools list." }
+      - { label: "Status", name: "status", widget: "string", hint: "e.g. Live, In Development, Planned." }
+      - { label: "Short description", name: "description", widget: "string", required: false, hint: "One-line summary used in listings and link previews." }
+      - label: "Layout"
+        name: "layout"
+        widget: "select"
+        required: false
+        options: ["embed", "audio"]
+        hint: "Leave empty for a plain text page. 'embed' shows the feed tabs below; 'audio' shows the podcast shows."
+      - label: "Feeds (tabs)"
+        name: "monitors"
+        widget: "list"
+        label_singular: "Feed"
+        required: false
+        summary: "{{fields.label}}"
+        hint: "Only used with the 'embed' layout. Each feed becomes a tab; 'Embed URL' should point at a chrome-free embed page."
         fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Intro text", name: "body", widget: "markdown" }
-
-      - name: "monitor"
-        label: "Monitor"
-        file: "content/tools/monitor.md"
+          - { label: "Tab label", name: "label", widget: "string" }
+          - { label: "Embed URL", name: "src", widget: "string" }
+      - label: "Shows"
+        name: "shows"
+        widget: "list"
+        label_singular: "Show"
+        required: false
+        summary: "{{fields.name}}"
+        hint: "Only used with the 'audio' layout."
         fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Order (weight)", name: "weight", widget: "number", value_type: "int", default: 5, hint: "Lower numbers sort first in the tools list." }
-          - { label: "Status", name: "status", widget: "string", hint: "e.g. Live, In development, Planned." }
-          - { label: "Short description", name: "description", widget: "string", required: false }
-          - { label: "Layout", name: "layout", widget: "hidden", default: "embed" }
-          - label: "Feeds (tabs)"
-            name: "monitors"
-            widget: "list"
-            label_singular: "Feed"
-            summary: "{{fields.label}}"
-            hint: "Each feed becomes a tab. 'Embed URL' should point at a chrome-free embed page."
-            fields:
-              - { label: "Tab label", name: "label", widget: "string" }
-              - { label: "Embed URL", name: "src", widget: "string" }
-          - { label: "Intro text", name: "body", widget: "markdown" }
-
-      - name: "transatlantic-right-wing-monitor"
-        label: "Transatlantic Right-Wing Monitor"
-        file: "content/tools/transatlantic-right-wing-monitor.md"
+          - { label: "Show name", name: "name", widget: "string" }
+          - { label: "Description", name: "description", widget: "string", required: false }
+          - { label: "Podcast RSS feed URL", name: "feed", widget: "string", hint: "The five most recent episodes are pulled from this feed." }
+          - { label: "Spotify show ID", name: "spotify_show", widget: "string", required: false, hint: "The ID from open.spotify.com/show/<id>." }
+          - { label: "YouTube playlist ID", name: "youtube_playlist", widget: "string", required: false, hint: "The list= value from the playlist URL." }
+      - label: "Daily reports"
+        name: "reports"
+        widget: "object"
+        required: false
+        hint: "Optional — GitHub repo the archived daily reports are read from (used with the 'embed' layout)."
         fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Order (weight)", name: "weight", widget: "number", value_type: "int", default: 6 }
-          - { label: "Status", name: "status", widget: "string" }
-          - { label: "Short description", name: "description", widget: "string", required: false }
-          - { label: "Layout", name: "layout", widget: "hidden", default: "embed" }
-          - label: "Feeds (tabs)"
-            name: "monitors"
-            widget: "list"
-            label_singular: "Feed"
-            summary: "{{fields.label}}"
-            fields:
-              - { label: "Tab label", name: "label", widget: "string" }
-              - { label: "Embed URL", name: "src", widget: "string" }
-          - label: "Daily reports"
-            name: "reports"
-            widget: "object"
-            required: false
-            hint: "GitHub repo the archived daily reports are read from."
-            fields:
-              - { label: "Repo owner", name: "owner", widget: "string" }
-              - { label: "Repo name", name: "repo", widget: "string" }
-              - { label: "Branch", name: "branch", widget: "string", default: "main" }
-              - { label: "Path in repo", name: "path", widget: "string" }
-              - { label: "Section title", name: "title", widget: "string" }
-              - { label: "Section description", name: "description", widget: "string", required: false }
-          - { label: "Intro text", name: "body", widget: "markdown" }
-
-      - name: "audio-briefings"
-        label: "Audio Briefings"
-        file: "content/tools/audio-briefings.md"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Order (weight)", name: "weight", widget: "number", value_type: "int", default: 8 }
-          - { label: "Status", name: "status", widget: "string" }
-          - { label: "Layout", name: "layout", widget: "hidden", default: "audio" }
-          - label: "Shows"
-            name: "shows"
-            widget: "list"
-            label_singular: "Show"
-            summary: "{{fields.name}}"
-            fields:
-              - { label: "Show name", name: "name", widget: "string" }
-              - { label: "Description", name: "description", widget: "string", required: false }
-              - { label: "Podcast RSS feed URL", name: "feed", widget: "string", hint: "The five most recent episodes are pulled from this feed." }
-              - { label: "Spotify show ID", name: "spotify_show", widget: "string", required: false, hint: "The ID from open.spotify.com/show/<id>." }
-              - { label: "YouTube playlist ID", name: "youtube_playlist", widget: "string", required: false, hint: "The list= value from the playlist URL." }
-          - { label: "Intro text", name: "body", widget: "markdown" }
-
-      - name: "journal-monitor"
-        label: "Journal Monitor"
-        file: "content/tools/journal-monitor.md"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Order (weight)", name: "weight", widget: "number", value_type: "int", default: 10 }
-          - { label: "Status", name: "status", widget: "string" }
-          - { label: "Short description", name: "description", widget: "string", required: false }
-          - { label: "Intro text", name: "body", widget: "markdown" }
-
-      - name: "article-book-reader"
-        label: "Academic Article/Book Reader"
-        file: "content/tools/article-book-reader.md"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Order (weight)", name: "weight", widget: "number", value_type: "int", default: 30 }
-          - { label: "Status", name: "status", widget: "string" }
-          - { label: "Short description", name: "description", widget: "string", required: false }
-          - { label: "Intro text", name: "body", widget: "markdown" }
-
-      - name: "network-analyzer"
-        label: "Network Analyzer"
-        file: "content/tools/network-analyzer.md"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Order (weight)", name: "weight", widget: "number", value_type: "int", default: 40 }
-          - { label: "Status", name: "status", widget: "string" }
-          - { label: "Short description", name: "description", widget: "string", required: false }
-          - { label: "Intro text", name: "body", widget: "markdown" }
+          - { label: "Repo owner", name: "owner", widget: "string" }
+          - { label: "Repo name", name: "repo", widget: "string" }
+          - { label: "Branch", name: "branch", widget: "string", default: "main" }
+          - { label: "Path in repo", name: "path", widget: "string" }
+          - { label: "Section title", name: "title", widget: "string" }
+          - { label: "Section description", name: "description", widget: "string", required: false }
+      - label: "URL aliases"
+        name: "aliases"
+        widget: "list"
+        required: false
+        field: { label: "Old URL path", name: "alias", widget: "string" }
+        hint: "Old URL paths that should redirect to this tool, e.g. /tools/old-name/."
+      - { label: "Intro text", name: "body", widget: "markdown" }

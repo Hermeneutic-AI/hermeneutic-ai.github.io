@@ -12,10 +12,6 @@ monitors:
     src: https://victorshammas.com/embeds/space-monitor/
   - label: Tech
     src: https://victorshammas.com/embeds/tech-monitor/
-  - label: Left
-    src: https://victorshammas.com/embeds/leftpolitics-monitor/
-  - label: Right
-    src: https://victorshammas.com/embeds/rightwing-monitor/
 ---
 
 Monitor is the lab's live reading room — a running dashboard that follows several streams at once: developments in artificial intelligence, in space, in technology, and across the left and right of political discourse, watching how each is framed and reframed over time.
